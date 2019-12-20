@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Json Editor demo</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="../dist/simple-json-editor.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.6/vue.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: darkseagreen;
+        }
+
+        #app {
+            margin: 50px auto;
+            width: 800px;
+            max-width: 100%;
+        }
+
+        /*just set the color and background color of .simple-json-editor*/
+        .simple-json-editor {
+            color: chocolate;
+            background-color: darkseagreen;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <simple-json-editor :content="content" :height="500"></simple-json-editor>
+</div>
+
+<script>
+    Vue.use(SimpleJsonEditor)
+    new Vue({
+        el: "#app",
+        data: {
+            content: "<h3>Simple Json Editor</h3>",
+        }
+    })
+</script>
+</body>
+</html>

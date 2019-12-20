@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Json Editor demo</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="../dist/simple-json-editor.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.6/vue.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        #app {
+            margin: 50px auto;
+            width: 800px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <simple-json-editor :content="content" @change="updateData" :height="500"></simple-json-editor>
+</div>
+
+<script>
+    Vue.use(SimpleJsonEditor, {
+        hiddenModules: [
+            "info",
+            "text",
+            "color",
+            "font",
+            "align",
+            "tabulation",
+            "hr",
+            "list",
+            "link",
+            "unlink",
+            "full-screen",
+        ],
+        visibleModules: [
+            "image"//will not show in editor
+        ]
+    })
+    new Vue({
+        el: "#app",
+        data: {
+            content: "<h3>Simple Json Editor,custom modules</h3>",
+        },
+        methods: {
+            updateData: function (data) {
+                // sync content to component
+                this.content = data
+            },
+        }
+    })
+</script>
+</body>
+</html>

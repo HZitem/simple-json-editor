@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Json Editor demo</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <script src="../dist/simple-json-editor.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.6/vue.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        #app {
+            margin: 50px auto;
+            width: 800px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p>
+        <button type="button" @click="focus">focus</button>
+        <button type="button" @click="fullScreen">full screen</button>
+        <button type="button" @click="showModuleName=!showModuleName">toggle module name</button>
+        <button type="button" @click="reset">change content</button>
+        <span style="white-space: nowrap">content length : {{content.length}}</span>
+    </p>
+
+    <simple-json-editor :content="content" :height="300" :show-module-name="showModuleName"
+                      @change="updateData" ref="editor"></simple-json-editor>
+</div>
+
+<script>
+    Vue.use(SimpleJsonEditor, {
+        showModuleName: true,
+        image: {
+            sizeLimit: 512 * 1024,
+            compress: true,
+            width: 500,
+            height: 500,
+            quality: 80
+        }
+    })
+
+    new Vue({
+        el: "#app",
+        data: {
+            content: "<h3>Simple Json Editor</h3>",
+            showModuleName: false,
+        },
+        methods: {
+            updateData: function (data) {
+                // sync content to component
+                this.content = data
+            },
+            fullScreen: function () {
+                this.$refs.editor.enableFullScreen()
+            },
+            focus: function () {
+                this.$refs.editor.focus()
+            },
+            reset:function () {
+                var newContent = prompt('please input some html code: ')
+                if(newContent){
+                    this.content = newContent
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
