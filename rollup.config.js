@@ -66,7 +66,7 @@ export default {
                 ascii_only: true // 仅输出ascii字符
             },
             compress: {
-                pure_funcs: ['console.log'] // 去掉console.log函数
+                // pure_funcs: ['console.log'] // 去掉console.log函数
             }
         })
     ]

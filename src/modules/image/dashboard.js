@@ -62,7 +62,6 @@ export default {
             //         quality: 80
             //     },
             // }
-
             if (!config.upload && typeof config.server === 'string') {
                 config.upload = {url: config.server}
             }

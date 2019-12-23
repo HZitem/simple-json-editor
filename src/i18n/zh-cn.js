@@ -1,4 +1,5 @@
 export default {
+    video: ' 视频',
     align: '对齐方式',
     image: '图片',
     list: '列表',

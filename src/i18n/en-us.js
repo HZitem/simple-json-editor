@@ -1,4 +1,5 @@
 export default {
+    video: 'video',
     align: 'align',
     image: 'image',
     list: 'list',

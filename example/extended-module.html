@@ -48,7 +48,7 @@
                 i18n: "time",
                 show: true,
                 init: function (editor) {
-                    alert("time module init, config is \r\n" + JSON.stringify(this.config))
+                    // alert("time module init, config is \r\n" + JSON.stringify(this.config))
                 },
                 handler: function (editor) {
                     editor.execCommand("insertHTML", moment().format(this.config.format || "YYYY-MM-DD HH:mm"))

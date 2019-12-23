@@ -245,6 +245,11 @@ export default class RangeHandler {
                 document.execCommand(Command.INSERT_IMAGE, false, arg)
                 break
             }
+            case Command.INSERT_VIDEO: {
+                // 后面追加p标签是创建新的一行可以编辑
+                document.execCommand(Command.INSERT_VIDEO, false,`<video src="${arg}" controls="controls">您的浏览器不支持 video 标签。</video><p style="min-height: 20px"></p>`)
+                break
+            }
             case Command.CREATE_LINK: {
                 document.execCommand(Command.CREATE_LINK, false, arg)
                 break
